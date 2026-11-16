@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 3</title>
+</head>
+<body>
+    <script>
+        function simulaProceso(exito) {
+            return new Promise((resolve, reject) => {
+                if (exito) {
+                    resolve("Proceso exitoso");
+                } else {
+                    reject("Hubo un error");
+                }
+            });
+        }
+
+        simulaProceso(true)
+            .then(res => console.log("Then-Catch exito:", res))
+            .catch(err => console.error("Then-Catch Error:", err));
+
+        simulaProceso(false)
+            .then(res => console.log("Then-Catch exito:", res))
+            .catch(err => console.error("Then-Catch Error:", err));
+
+        async function probarAsync() {
+            try {
+                const res = await simulaProceso(true);
+                console.log("Async-Await exito:", res);
+            } catch (err) {
+                console.error("Async-Await Error:", err);
+            }
+
+            try {
+                const res = await simulaProceso(false);
+                console.log("Async-Await exito:", res);
+            } catch (err) {
+                console.error("Async-Await Error:", err);
+            }
+        }
+
+        probarAsync();
+    </script>
+</body>
+</html>

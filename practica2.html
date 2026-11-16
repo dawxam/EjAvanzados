@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Practica 2</title>
+</head>
+<body>
+    <div id="resultado">Esperando...</div>
+
+    <script type="module">
+        import { temporizador } from './practica2.js';
+
+        const contenedor = document.getElementById('resultado');
+
+        temporizador(5000)
+            .then(mensaje => {
+                contenedor.textContent = mensaje;
+            })
+            .catch(error => {
+                contenedor.textContent = error;
+            });
+    </script>
+</body>
+</html>

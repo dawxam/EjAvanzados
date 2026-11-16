@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 5</title>
+</head>
+<body>
+    <script>
+        function primeraTarea() {
+            return Promise.resolve(10);
+        }
+
+        function segundaTarea(valor) {
+            return Promise.resolve(valor * 2);
+        }
+
+        function terceraTarea(valor) {
+            return Promise.resolve(valor + 5);
+        }
+
+        primeraTarea()
+            .then(res1 => segundaTarea(res1))
+            .then(res2 => terceraTarea(res2))
+            .then(resultadoFinal => console.log(resultadoFinal));
+    </script>
+</body>
+</html>
